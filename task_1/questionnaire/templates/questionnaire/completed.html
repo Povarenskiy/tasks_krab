@@ -1,0 +1,28 @@
+{% extends 'questionnaire/header.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="test_info">
+        <div class="test_info_item">{{ header }}</div> 
+        <div class="test_info_item">Тест завершен!</div>
+        <div class="test_info_item">Правильных ответов: {{ right }}</div>
+        <div class="test_info_item">Неправильных ответов: {{ false }}</div>
+        <div class="test_info_item">Оценка: {{ score }} %</div>
+    </div>      
+    <button id="home">На главную</button> 
+</div>
+
+
+<script>
+    document.querySelector('#home').onclick = function(e) {
+        window.location.href = "{% url 'home' %}"
+    }
+
+
+</script>
+
+
+ 
+{% endblock %}

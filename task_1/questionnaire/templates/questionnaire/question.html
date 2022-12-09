@@ -1,0 +1,42 @@
+{% extends 'questionnaire/header.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="test_info">
+        <div class="test_info_item">{{ header }}</div> 
+        <div class="test_info_item">Вопрос: {{ question }}</div>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Варианты ответов</legend>
+                <ol>
+                    {% for answer in answers %}
+                        <li><input type="checkbox" name="user-answer" value="{{ answer.id }}">{{ answer.answer }}</li>
+                    {% endfor %}
+                </ol>
+        </fieldset>
+        <div class="tes_navigation">
+            <button id="start" type="submit">Следующий</button>
+        </div>
+    </form>        
+    <button id="home">На главную</button> 
+</div>
+
+
+<script>
+    document.querySelector('#home').onclick = function(e) {
+        window.location.href = "{% url 'home' %}"
+    }
+
+    document.querySelector('#start').onclick = function(e) {
+        window.location.href += '' 
+    }
+
+</script>
+
+
+ 
+{% endblock %}

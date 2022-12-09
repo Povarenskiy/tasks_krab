@@ -1,0 +1,34 @@
+{% extends 'questionnaire/header.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="content">
+        {% for test in object_list  %}
+            <div id="{{ test.id }}" class="test"> 
+                <div class="test_header"> {{ test.header }} </div>
+                <div class="test_status"> {{ test.header }} </div> 
+                <div class="test_right"> {{ test.header }} </div> 
+                <div class="test_wrong"> {{ test.header }} </div>   
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    
+<script>
+
+function get_test_page() {
+    window.location.href = this.id
+}
+
+const buttons = document.querySelectorAll('.test')
+buttons.forEach(function(e) {e.onclick = get_test_page});
+
+</script>
+
+
+
+{% endblock %}
+
+
