@@ -1,0 +1,39 @@
+{% extends 'cardsmanager/page.html' %} 
+{% block content %}
+
+<div class="container">
+    
+    <form method="POST">
+            <div class="generator-panel">
+            {% csrf_token %}
+            <label for="generator-series">Серия:</label>
+            <input id="generator-item" name="generator-series" type="text" maxlength="4"></br>
+            <label for="generator-amount">Количество:</label>
+            <input id="generator-amount" name="generator-amount" type="text"></br>
+            <label for="generator-end-activity">Скор окончания активности:</label>
+            <select id="generator-item" name="generator-end-activity">
+                <option disabled>Выберите срок окончания активности</option>
+                <option value="12">1 год</option>
+                <option value="6">6 месяцев</option>
+                <option value="1">1 месяц</option>
+            </select>
+            </br>
+            
+            <input id="generator-history" name="generator-history" type="checkbox" checked value="yes">
+            <label for="generator-history" >Добавить историю покупок</label>
+            </br>
+            
+            <button value="card-generator" name="action" type="submit">Сгенерировать</button>
+           </div>
+        </form>
+        <button id="home" type="submit">На главную</button>
+
+
+
+<script>
+    document.querySelector('#home').onclick = function(e) {
+        window.location.href = "{% url 'home' %}"
+    }
+
+</script>
+{% endblock %}  

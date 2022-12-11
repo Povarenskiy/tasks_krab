@@ -1,0 +1,76 @@
+{% extends 'cardsmanager/page.html' %} 
+{% block content %}
+
+<div class="container">
+
+    <div class="card-content">
+        <div class="card-content-panel">
+            <div class="card-content-panel-info">
+                <div class="card-info">Серия: {{ card.series }}</div>
+                <div class="card-info">Номер: {{ card.number }}</div>
+                <div class="card-info">До: {{ card.end_of_activity.day }}/{{ card.end_of_activity.month }}/{{ card.end_of_activity.year }}</div>
+                
+            </div>
+            <div class="card-content-panel-actions">
+                <div class="card-content-panel-status">
+                    <div class="card-content-panel-status-item">Баланс: {{ card.balans }}</div>
+                    
+                    {% if card.status == 'AC' %}
+                        <div class="card-content-panel-status-item">Статус: Активирована</div> 
+                    {% elif card.status == 'NA' %}
+                        <div class="card-content-panel-status-item">Статус: Не активирована</div>
+                    {% elif card.status == 'EX' %}  
+                        <div class="card-content-panel-status-item">Статус: Просрочена</div>
+                    {% endif %}   
+                    <div class="card-content-panel-status-item">Дата выхода: {{ card.release.day }}/{{ card.release.month }}/{{ card.release.year }}</div>     
+                </div>
+
+                <form class="card-content-panel-buttons" method="POST">
+                    {% csrf_token %}
+                    {% if card.status == 'AC' %}
+                        <button type="submit" value="status-cahnge" name="action">Дезактивировать</button>
+                    {% elif card.status == 'NA' %}
+                        <button type="submit" value="status-cahnge" name="action">Активировать</button>
+                    {% elif card.status == 'EX' %}  
+                        <button disabled>Просрочена</button>
+                    {% endif %}
+            
+                    <button type="submit" value="status-delete" name="action">Удалить карту</button>
+                </form>
+            </div>
+
+            
+        </div>
+        <div class="card-content-history-header">
+            <h3>История покупок</h3>
+        </div>
+        <div class="card-content-history">
+            {% for item in history %}
+                <div class="card-content-history-info">
+                    <div class="card-content-history-date">{{ item.date }}</div>
+                    <div class="card-content-history-debit">{{ item.debit }}</div>
+                </div>
+            {% endfor %}
+    
+        </div>
+
+    </div>
+    
+
+    
+    
+    <div class="navigation">
+        <button id="home">На главную</button> 
+    </div>        
+</div>
+
+
+<script>
+    document.querySelector('#home').onclick = function(e) {
+        window.location.href = "{% url 'home' %}"
+    }
+
+</script>
+    
+    
+{% endblock %}  

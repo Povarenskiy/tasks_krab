@@ -1,0 +1,87 @@
+
+
+
+{% extends 'cardsmanager/page.html' %} 
+{% block content %}
+
+<div class="container">
+<div>
+    
+</div>
+    
+    <h3>Фильтр</h3>
+    <form method="POST">
+            {% csrf_token %}
+        
+        <div class="filter-panel">
+
+            <label for="filter-series">Серия:</label>
+            <input id="filter-item" name="filter-series" type="text"></br>
+
+            <label for="filter-release-date">Дата выпуска</label>
+            <input id="filter-item" name="filter-release-day" type="text" placeholder="День">
+            <input id="filter-item" name="filter-release-month" type="text" placeholder="Месяц">
+            <input id="filter-item" name="filter-release-year" type="text" placeholder="Год">
+            </br>
+            <label for="filter-end-activity">Скор окончания активности:</label>
+            <input id="filter-item" name="filter-end-activity-day" type="text" placeholder="День">
+            <input id="filter-item" name="filter-end-activity-month" type="text" placeholder="Месяц">
+            <input id="filter-item" name="filter-end-activity-year" type="text" placeholder="Год">
+            </br>
+            <label for="filter-status">Статус:</label>
+
+            <select id="filter-item" name="filter-status">
+                <option disabled>Выберите статус</option>
+                <option value="All">Все</option>
+                <option value="AC">Активирована</option>
+                <option value="NA">Не активирована</option>
+                <option value="EX">Просрочена</option>
+            </select>
+
+
+            
+            <button value="card-filter" name="action" type="submit">Фильтровать</button>
+        
+        </div>
+    </form>
+    <h3>Генератор карт</h3>
+    <div class="generator-panel">
+    <button  id="card-generator">Сгенерировать карты</button>
+    </div>   
+        
+    <h3>Список карт</h3>
+    
+    <div class="content">
+        
+        {% for card in cards %}
+            <div id="{{ card.id }}" class="card"> 
+                <div class="card-info">Серия: {{ card.series }}</div>
+                <div class="card-info">Номер: {{ card.number }}</div>
+                <div class="card-info">До: {{ card.end_of_activity.day }}/{{ card.end_of_activity.month }}/{{ card.end_of_activity.year }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<script>
+
+function get_test_page() {
+    window.location.href = this.id
+}
+
+const buttons = document.querySelectorAll('.card')
+buttons.forEach(function(e) {e.onclick = get_test_page});
+
+
+
+document.querySelector('#card-generator').onclick = function(e) {
+        window.location.href += 'generator' 
+    }
+
+
+
+</script>
+
+{% endblock %}  
