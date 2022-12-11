@@ -1,11 +1,8 @@
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-}
 
 
 body {
     margin: 0;
-    font-family: cursive;
+    font-family: sans-serif;
 }
 
 
@@ -45,6 +42,10 @@ body {
     margin: 0 auto;    
 }
 
+.tests-header {
+    display: flex;
+    justify-content: center;
+}
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -61,150 +62,13 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-.full-window {
-    display: flex;
-}
-
-
-.left-bar {
-    width: 40vh; 
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-.add-chatroom {
-    margin: 10px auto;
-    padding: 15px;
-    background-color: #d6e9c6;
-    border: 0px solid rgba(10, 111, 132, 0.667);
-    border-radius: 30px;
-
-}
-
-.chatroom-item {
-    margin: 2px;
-    margin-left: 5px;
-    padding: 25px;
-    border: 0px solid rgba(10, 111, 132, 0.667);
-    border-radius: 10px;
-
-    background-color: #d6e9c6;
-
-}
-
-
-.right-bat {
-    flex: 1;
-    justify-content: center;
-}
-
-
-.container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    
-}
-
-.chat {
-    display: flex;
-    flex-direction: column;
-    height: 92vh;
-    justify-content: space-around;
-
+.test:hover {
+	background: rgba(0,0,0,0);
+	color: black;
+	box-shadow: inset 0 0 0 3px black;
 }
 
 
 
-.chat-log {
-    display: flex;
-    flex-direction: column-reverse;
-    overflow: auto;
-    margin: 10px;
-    width: 100%;
-    height: 100vh;
-    scroll-behavior: smooth;
-    
-
-}
-
-
-.message {
-    width:fit-content;
-    margin: 10px;
-    padding: 15px;
-    border: 1px solid #d6e9c6;
-    border-radius: 4px;
-    color: #3c763d;
-    background-color: #dff0d8;
-}
-
-.out {
-    align-self: flex-end; 
-}
-
-.in {
-    align-self: flex-start; 
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-background: #f1f1f1;
-border-radius: 5px;
-margin: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-background: #888;
-border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-background: #555;
-}
-
-
-
-.chat-message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 10px;
-}
-
-
-#chat-message-submit {
-    height: 5vh;
-    width: 10%;
-    margin: 0px 10px;
-    border: 1px solid #d6e9c6;
-    border-radius: 20px;
-}
-
-#chat-message-input  {
-    height: 5vh;
-    width: 60%;
-    border: 1px solid #d6e9c6;
-    border-radius: 4px;
-}
 
 

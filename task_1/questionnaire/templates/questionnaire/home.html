@@ -3,13 +3,14 @@
 {% block content %}
 
 <div class="container">
+    <div class="tests-header">
+        <h3>Список тестов</h3>
+    </div>
     <div class="content">
         {% for test in object_list  %}
             <div id="{{ test.id }}" class="test"> 
                 <div class="test_header"> {{ test.header }} </div>
-                <div class="test_status"> {{ test.header }} </div> 
-                <div class="test_right"> {{ test.header }} </div> 
-                <div class="test_wrong"> {{ test.header }} </div>   
+  
             </div>
         {% endfor %}
     </div>
