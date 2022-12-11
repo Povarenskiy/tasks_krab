@@ -10,21 +10,7 @@ from django.views import View
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-
 from cardsmanager.models import *
-
-
-# def random_date():
-#     """
-#     Функция возвращает случайный datetime между двумя datetime objects
-#     """
-#     start = datetime.strptime('1/1/2008 00:00: PM', '%m/%d/%Y %I:%M %p')
-#     start = datetime.strptime('1/1/2009 00:00 AM', '%m/%d/%Y %I:%M %p')
-
-#     delta = end - start
-#     int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
-#     random_second = randrange(int_delta)
-#     return start + timedelta(seconds=random_second)
 
 
 class HomeView(View):
@@ -135,7 +121,7 @@ class CardGenerator(View):
             
             delta = {
                 '1':timedelta(days=30), 
-                '8': timedelta(days=180),
+                '6': timedelta(days=180),
                 '12': timedelta(days=365)
                 }
 
